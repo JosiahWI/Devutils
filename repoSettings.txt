@@ -1,0 +1,5 @@
+#comment out the lines you don't want to run like this
+qub3d-engine
+qub3d-libdeps
+sandblox-client
+sandblox-server
