@@ -30,15 +30,14 @@ class Parser:
 		#There might be a better way to do this, as this way we have to cut out the first part
 		line = str(line.strip())
 		if line[0] == 'b':
-			line = line[2:]
+			line = line[2:-1]
 		#Is the line a comment, return an empty command
 		if line[0] == "#":
-			return ""
+			return (("", ""))
 		#If the directory exists, return a git pull command.
-		if os.path.isdir("../" + line):
-			return ("git pull " + self.sourceRepo + line +" " + line)
+		if os.path.isdir(line):
+			return (("git pull"), line)
 		else:
-			return ("")
-			return ("git clone " + self.sourceRepo + line + " " + line)
+			return (("git clone " + self.sourceRepo + line), line)
 		
 		
